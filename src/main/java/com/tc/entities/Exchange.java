@@ -1,22 +1,29 @@
-package com.tc.entity;
+package com.tc.entities;
+
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "tb_exchange")
-public class Exchange {
+public class Exchange extends PanacheEntityBase {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "ts_request")
-    private Timestamp timestampRequest;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestampRequest;
 
     @Column(name = "dt_request")
-    private LocalDateTime datetimeRequest;
+    //@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.", shape = JsonFormat.Shape.STRING)
+    private LocalDate dateRequest;
 
     @Column(name = "vl_request_buy")
     private Double valueBuy;
@@ -24,8 +31,9 @@ public class Exchange {
     @Column(name = "vl_request_sell")
     private Double valueSell;
 
+    //@JsonbDateFormat(value = "MM/dd/YYYY")
     @Column(name = "dt_exchange")
-    private LocalDateTime datetimeExchange;
+    private LocalDate dateExchange;
 
     public Long getId() {
         return id;
@@ -35,20 +43,20 @@ public class Exchange {
         this.id = id;
     }
 
-    public Timestamp getTimestampRequest() {
+    public Date getTimestampRequest() {
         return timestampRequest;
     }
 
-    public void setTimestampRequest(Timestamp timestampRequest) {
+    public void setTimestampRequest(Date timestampRequest) {
         this.timestampRequest = timestampRequest;
     }
 
-    public LocalDateTime getDatetimeRequest() {
-        return datetimeRequest;
+    public LocalDate getDateRequest() {
+        return dateRequest;
     }
 
-    public void setDatetimeRequest(LocalDateTime datetimeRequest) {
-        this.datetimeRequest = datetimeRequest;
+    public void setDateRequest(LocalDate dateRequest) {
+        this.dateRequest = dateRequest;
     }
 
     public Double getValueBuy() {
@@ -67,11 +75,11 @@ public class Exchange {
         this.valueSell = valueSell;
     }
 
-    public LocalDateTime getDatetimeExchange() {
-        return datetimeExchange;
+    public LocalDate getDateExchange() {
+        return dateExchange;
     }
 
-    public void setDatetimeExchange(LocalDateTime datetimeExchange) {
-        this.datetimeExchange = datetimeExchange;
+    public void setDateExchange(LocalDate dateExchange) {
+        this.dateExchange = dateExchange;
     }
 }
