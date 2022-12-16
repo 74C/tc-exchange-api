@@ -10,5 +10,5 @@ public interface ExchangeRepository extends JpaRepository<Exchange, Long> {
 
     final String FORMAT_DATE = "MM-dd-yyyy";
     @Query(value = "SELECT e FROM Exchange e WHERE TO_CHAR(e.dateRequest, '"+ FORMAT_DATE +"' ) = :dateRequest")
-    Exchange findByDateRequest(LocalDate dateRequest);
+    Exchange findByDateRequest(String dateRequest);
 }

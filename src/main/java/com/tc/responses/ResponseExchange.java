@@ -1,43 +1,20 @@
-package com.tc.entities;
+package com.tc.responses;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import lombok.Builder;
-import org.hibernate.annotations.CreationTimestamp;
-
-import javax.json.bind.annotation.JsonbDateFormat;
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "tb_exchange")
-public class Exchange extends PanacheEntityBase {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+public class ResponseExchange {
     private Long id;
 
-    @Column(name = "ts_request")
-    @CreationTimestamp
     private LocalDateTime timestampRequest;
 
-    @JsonbDateFormat(value = "MM-dd-yyyy")
-    @Column(name = "dt_request")
     private LocalDate dateRequest;
 
-    @Column(name = "vl_request_buy")
     private Double valueBuy;
 
-    @Column(name = "vl_request_sell")
     private Double valueSell;
 
-    @Column(name = "dt_exchange")
     private LocalDateTime dateExchange;
-
-    public Exchange() {
-
-    }
 
     public Long getId() {
         return id;
@@ -86,4 +63,5 @@ public class Exchange extends PanacheEntityBase {
     public void setDateExchange(LocalDateTime dateExchange) {
         this.dateExchange = dateExchange;
     }
+
 }
