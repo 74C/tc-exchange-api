@@ -27,45 +27,6 @@ public class ExchangeResource {
     @Inject
     private ExchangeService service;
 
-    /*
-    @GET
-    @Path("/find_all")
-    public Response findAll() {
-        List<Exchange> list = Exchange.listAll();
-        LOGGER.info("findAll executed!");
-        return Response.ok(list).status(Response.Status.FOUND).build();
-    }
-
-    @GET
-    @Path("/find_by_id/{id}")
-    public Response findById(@PathParam("id") Long id) {
-        Exchange response = service.findById(id);
-        LOGGER.info("findById executed!" + response);
-        if (response == null) {
-            LOGGER.info("findById: NOT FOUND EXCHANGE");
-            return Response.ok().status(Response.Status.NO_CONTENT).build();
-        }
-        return Response.ok(response).status(Response.Status.FOUND).build();
-    }
-
-    @GET
-    @Path("/find_by_date")
-    @APIResponse(
-            responseCode = "200",
-            description = "Get Exchange by ID",
-            content = @Content(
-                    mediaType = MediaType.APPLICATION_JSON,
-                    schema = @Schema(type = SchemaType.OBJECT, implementation = Exchange.class)
-            )
-    )
-    public Response findByDate(@QueryParam("dateRequest") @JsonbDateFormat("MM-dd-yyyy") LocalDate dateRequest) {
-        LOGGER.info("Date: " + dateRequest);
-        Exchange response = service.findByDate(dateRequest);
-        LOGGER.info("Find By Date  executed!");
-        return Response.ok(response).status(Response.Status.FOUND).build();
-    }*/
-
-
     @POST
     @Transactional
     @APIResponse(
