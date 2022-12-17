@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.DateTimeParseException;
 
 public final class DateUtil {
@@ -32,7 +33,9 @@ public final class DateUtil {
     }
 
     public static LocalDate formatStrinToLocalDate(String date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT_STR);
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .appendPattern(DATE_FORMAT_STR).toFormatter();
         LocalDate localDate = null;
         try {
             localDate = LocalDate.parse(date, formatter);

@@ -1,11 +1,11 @@
 package com.tc.entities;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import lombok.Builder;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class Exchange extends PanacheEntityBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -26,11 +26,14 @@ public class Exchange extends PanacheEntityBase {
     @Column(name = "dt_request")
     private LocalDate dateRequest;
 
+    @NotNull
     @Column(name = "vl_request_buy")
     private Double valueBuy;
 
+    @NotNull
     @Column(name = "vl_request_sell")
     private Double valueSell;
+
 
     @Column(name = "dt_exchange")
     private LocalDateTime dateExchange;

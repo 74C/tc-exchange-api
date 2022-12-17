@@ -1,5 +1,10 @@
 # tc-exchange Project
 
+Criterios de aceitação:
+- Deverá trazer o dados da cotação do dolar do Banco Central através da data informada pelo usuário
+- Deverá armazenar num banco de dados os dados da pesquisa com os dados do Banco Central
+- Caso a data informada pelo usuário para a pesquisa já tenha armazenada deverá trazer do banco de dados
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .

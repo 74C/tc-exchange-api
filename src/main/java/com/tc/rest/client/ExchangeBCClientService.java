@@ -9,7 +9,7 @@ import javax.ws.rs.QueryParam;
 
 @Path("/odata")
 @RegisterRestClient(configKey="bcb-api")
-public interface ExchangeBCService {
+public interface ExchangeBCClientService {
 
     @GET
     @Path("CotacaoDolarDia(dataCotacao=@dataCotacao)")
