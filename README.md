@@ -67,3 +67,16 @@ If you want to learn more about building native executables, please consult http
 Easily start your RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+
+## Create Image Docker para Postgresql
+
+docker pull postgres
+
+docker run
+    --name myPostgresDb
+    -p 5455:5432
+    -e POSTGRES_USER=postgres
+    -e POSTGRES_PASSWORD=postgres
+    -e POSTGRES_DB=postgres
+    -d
+    postgres
